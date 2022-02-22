@@ -1,0 +1,124 @@
+/* reset.css */
+html, body {
+
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+  }
+
+a,
+a:link,
+a:visited,
+a:active,
+a:hover {
+    text-decoration: none;
+    color: #212529;
+}
+
+/* General */
+i {
+    color: #212529;
+}
+
+body {
+    height: 100vh;
+    /* position: relative; */
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100%;
+}
+
+header {
+    height: 20vh;
+}
+
+section {
+    flex-grow: 1;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+header,
+section,
+footer {
+    flex-shrink: 0;
+}
+
+/* Header */
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 60px;
+    padding: 10px 0;
+}
+
+.Header_main {
+    display: flex;
+    align-items: center;
+}
+
+.Header_main_menu {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Header_main_menu li {
+    margin: 6px;
+    font-size: 1rem;
+}
+
+.Header_sub {
+    display: flex;
+}
+
+.Header_sub_icons {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.Header_sub_icon {
+    margin: 10px;
+}
+
+.Header_sub_profile {
+    display: flex;
+    align-items: center;
+    margin-left: 14px;
+}
+
+.Header_sub_profile_username {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.Footer_sns {
+    display: flex;
+}
+
+.Footer_sns li {
+    margin: 0 10px;
+}
+
+.Footer_menu {
+    display: flex;
+}
+
+.Footer_menu li {
+    margin: 0 10px;
+}
