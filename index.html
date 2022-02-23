@@ -5,87 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Cloud</title>
-
-      <!-- Font-awesome 설정 코드 -->
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-    />
-
-    <!-- Google web font 설정 코드 -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
-      rel="stylesheet"
-    />
     
+    <!-- Google web font 설정 코드 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=PT+Sans&family=Playfair+Display:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <script defer src="scripts/script.js"></script>
 
 </head>
+
 <body>
-    <article>
-        <header>
-            <div class="Header">
-                <div class="Header_main">
-                    <h1 class="Header_main_logo">
-                        <a href="">
-                            <img src="" alt="">
-                        </a>
-                    </h1>
-                    <ul class="Header_main_menu">
-                        <li><a href="">메뉴1</a></li>
-                        <li><a href="">메뉴2</a></li>
-                        <li><a href="">메뉴3</a></li>
-                    </ul>
-                </div>
-                <div class="Header_sub">
-                    <div class="Header_sub_icons">
-                        <div class="Header_sub_icon">
-                            <i class="fas fa-window-restore"></i>
-                        </div>
-                        <div class="Header_sub_icon">
-                            <i class="far fa-star fa-lg"></i>
-                          </div>
-                          <div class="Header_sub_icon">
-                            <i class="fas fa-sliders-h fa-lg fa-rotate-90"></i>
-                          </div>
-                    </div>
-                    <div class="Header_sub_profile">
-                        <div class="Header_sub_profile_image">
-                            <i class="fas fa-user-astronaut fa-lg"></i>
-                        </div>
-                        <div class="Header_sub_profile_username">
-                            <p class="colorful-font">username</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <section>
-            <div class="search">
-                <input type="text" placeholder="검색어 입력">
-                <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-        </section>
-
-        <footer>
-            <hr>
-            <div class="Footer">
-                <p class="Footer_corp">&copy; 팀 소개</p>
-
-                <ul class="Footer_sns">
-                    <li><i class="fab fa-facebook fa-lg"></i></li>
-
-                </ul>
-
-                <ul class="Footer_menu">
-                    <li><a href="#">Footer</a></li>
-
-                </ul>
-
-            </div>
-        </footer>
-    </article>
+    
+    <div class="container">
+        <form class="box">
+            <h1>Search your word</h1>
+            <input type="text" placeholder="Type">
+            <input type="submit" value="Search">
+        </form>
+    </div>
 
 </body>
+
 </html>
