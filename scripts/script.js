@@ -61,10 +61,28 @@ const deleteForm = () => {
 // div(word) 생성 메소드
 const createWordObject = (word, freq) => {
   const wordContainer = document.createElement("div");
+  wordContainer.style.position = "relative";
   wordContainer.appendChild(document.createTextNode(word));
   wordContainer.style.lineHeight = 0.8;
   wordContainer.style.fontSize = freq + "px";
-  wordContainer.style.color = "red";
+  
+  // freq 따라서 랜덤 색? 0~10 10~20 20~30 30~40 40~50
+  if(freq > 0 && freq <10) {
+      wordContainer.style.color = "red";
+    } else if(freq >=10 && freq <20) {
+        wordContainer.style.color = "blue";
+    } else if (freq >=20 && freq < 30) {
+        
+        wordContainer.style.color = "green";
+    } else if (freq >=30 && freq < 40) {
+        wordContainer.style.color = "purple";
+        
+    } else if (freq >=40 && freq < 50) {
+        wordContainer.style.color = "white";
+        
+    }
+
+
 
   return wordContainer;
 };
@@ -73,11 +91,33 @@ const createWordObject = (word, freq) => {
 const placeWord = (word, x, y) => {
   container.appendChild(word);
   wordsDown.push(word.getBoundingClientRect());
+  console.log(x, y);
 };
 
 //
 const intersect = (word, x, y) => {
   cloud.appendChild(word);
+
+  word.style.left = x - word.offsetWidth/2 + "px";
+    word.style.top = y - word.offsetHeight/2 + "px";
+    
+    var currentWord = word.getBoundingClientRect();
+    
+    cloud.removeChild(word);
+    
+    for(var i = 0; i < wordsDown.length; i+=1){
+        var comparisonWord = wordsDown[i];
+        
+        if(!(currentWord.right + config.xWordPadding < comparisonWord.left - config.xWordPadding ||
+             currentWord.left - config.xWordPadding > comparisonWord.right + config.wXordPadding ||
+             currentWord.bottom + config.yWordPadding < comparisonWord.top - config.yWordPadding ||
+             currentWord.top - config.yWordPadding > comparisonWord.bottom + config.yWordPadding)){
+            
+            return true;
+        }
+    }
+    
+    return false;
 };
 
 /*  ========================================================== */
@@ -86,12 +126,13 @@ const placeWords = () => {
   for (let i = 0; i < options.length; i += 1) {
     let word = createWordObject(options[i].word, options[i].freq);
     // console.log(word);
-    for (let j = 0; j < 360 * 5; j++) {
-      angle = 1 * i;
-      x = (1 + angle) * Math.cos(angle);
-      y = (1 + angle) * Math.sin(angle);
-      placeWord(word, startPoint.x + x, startPoint.y + y);
-    }
+    // for (let j = 0; j < 360 * 5; j++) {
+    //   angle = 1 * i;
+    //   x = (1 + angle) * Math.cos(angle);
+    //   y = (1 + angle) * Math.sin(angle);
+    //   placeWord(word, startPoint.x + x, startPoint.y + y);
+    // }
+    placeWord(word, startPoint.x, startPoint.y);
   }
   //console.log(word);
   // placeWord(word, startPoint.x + x, startPoint.y + y);
