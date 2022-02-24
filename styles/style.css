@@ -18,6 +18,11 @@ html, body {
     background-position: center center;
 }
 
+#smallContainer {
+    width: 50%;
+    height: 50%;
+}
+
 .container:before {
     content: '';
     position: absolute;
