@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const formBox = document.querySelector(".box");
 const wordArea = document.querySelector("#word");
+const smallContainer = document.querySelector("#smallContainer");
 
 
 console.log(formBox);
@@ -28,8 +29,8 @@ let words = [
 // container 안에 있는 form 을 없애고 div(cloud) 를 넣는 방법 찾기
 // 시작 좌표
 let startPoint = {
-    x: container.offsetWidth / 2,
-    y: container.offsetHeight / 2,
+    x: smallContainer.offsetWidth / 2,
+    y: smallContainer.offsetHeight / 2,
   };
   console.log(startPoint);
 
@@ -41,6 +42,7 @@ const options = words.map((word) => {
   return {
     word: word,
     freq: Math.floor(Math.random() * 50),
+    rotate: (~~(Math.random() * 6) - 3) * 30,
   };
 });
 
@@ -59,12 +61,16 @@ const deleteForm = () => {
 };
 
 // div(word) 생성 메소드
-const createWordObject = (word, freq) => {
+const createWordObject = (word, freq, rotate) => {
   const wordContainer = document.createElement("div");
-  wordContainer.style.position = "relative";
+  wordContainer.style.position = "absolute";
   wordContainer.appendChild(document.createTextNode(word));
   wordContainer.style.lineHeight = 0.8;
   wordContainer.style.fontSize = freq + "px";
+  wordContainer.style.paddingTop = "10px";
+  wordContainer.style.textAnchor = "middle";
+  wordContainer.style.transform = "translate(300px, 200px) rotate(" + rotate + "deg)";
+  
   
   // freq 따라서 랜덤 색? 0~10 10~20 20~30 30~40 40~50
   if(freq > 0 && freq <10) {
@@ -89,7 +95,7 @@ const createWordObject = (word, freq) => {
 
 //
 const placeWord = (word, x, y) => {
-  container.appendChild(word);
+    smallContainer.appendChild(word);
   wordsDown.push(word.getBoundingClientRect());
   console.log(x, y);
 };
@@ -124,7 +130,7 @@ const intersect = (word, x, y) => {
 
 const placeWords = () => {
   for (let i = 0; i < options.length; i += 1) {
-    let word = createWordObject(options[i].word, options[i].freq);
+    let word = createWordObject(options[i].word, options[i].freq, options[i].rotate);
     // console.log(word);
     // for (let j = 0; j < 360 * 5; j++) {
     //   angle = 1 * i;
